@@ -35,6 +35,7 @@ namespace BSL
                     if (pg != null)
                     {
                         isInBasin = true;
+                        break;
                     }
                 }
                 cri.MoveNext();
