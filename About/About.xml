@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-  <name>Better Sun Lamp</name>
+  <name>Sun Lamp+</name>
   <author>ToyWalrus</author>
   <supportedVersions>
     <li>
-      1.0.0
+      1.0
     </li>
   </supportedVersions>
   <description>A mod that changes the default behavior of the sun lamp and hydroponic basins.
 
     Changes:
     * Sun Lamps
-      - Increased radius
+      - Increased light radius
       - Doesn't turn off at night
       - Outputs much more heat
     * Hydroponic Basins
       - Decreased cost, allowing 16 basins and a Sun Lamp from a single Geothermal Power Generator
-      - Plants in basins don't rest at night (growing 24/7!)
+      - Plants in basins don't rest at night (growing 24/7! They still need required light level though)
   </description>
 </ModMetaData>
