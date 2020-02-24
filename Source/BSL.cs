@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Verse;
 using RimWorld;
-using Harmony;
+using HarmonyLib;
 
 namespace BSL
 {
@@ -11,7 +11,7 @@ namespace BSL
     {
         static BSL()
         {            
-            var harmony = HarmonyInstance.Create("com.github.toywalrus.bsl");
+            var harmony = new Harmony("com.github.toywalrus.bsl");
             harmony.PatchAll(Assembly.GetExecutingAssembly());
         }
 
@@ -25,10 +25,9 @@ namespace BSL
         public static void IsResting(Plant __instance, ref bool __result)
         {
             bool isInBasin = false;
-            CellRect.CellRectIterator cri = __instance.OccupiedRect().GetIterator();
-            while (!cri.Done())
+            foreach (var cri in __instance.OccupiedRect())
             {
-                List<Thing> thingList = __instance.Map.thingGrid.ThingsListAt(cri.Current);
+                List<Thing> thingList = __instance.Map.thingGrid.ThingsListAt(cri);
                 for (int i = 0; i < thingList.Count; i++)
                 {
                     Building_PlantGrower pg = thingList[i] as Building_PlantGrower;
@@ -38,7 +37,6 @@ namespace BSL
                         break;
                     }
                 }
-                cri.MoveNext();
             }
             if (isInBasin) __result = false;
         }
